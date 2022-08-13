@@ -15,7 +15,7 @@ var CONFIG_FILE = path.join(__dirname, "config.json");
 try {
     var config = require(CONFIG_FILE);
 } catch (e) {
-    console.error("Не удалось загрузить файл конфигурации. Запуск начальной настройки...\n");
+    console.error("Failed to load configuration file. Starting setup wizard...\n");
     require("./lib/wizard").configWizard({ configFile: CONFIG_FILE });
     return;
 }
@@ -30,7 +30,7 @@ var defaultCwd = process.env.HOME || process.cwd();
 var fileUploads = {};
 
 bot.on("updateError", function (err) {
-  console.error("Error while updating:", err);
+  console.error("Error while updating: ", err);
 });
 
 bot.on("synced", function () {
