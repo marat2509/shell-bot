@@ -30,7 +30,7 @@ var defaultCwd = process.env.HOME || process.cwd();
 var fileUploads = {};
 
 bot.on("updateError", function (err) {
-  console.error("Ошибка при обновлении:", err);
+  console.error("Error while updating:", err);
 });
 
 bot.on("synced", function () {
@@ -187,7 +187,7 @@ bot.command("run", function (msg, reply, next) {
   if (msg.editor) msg.editor.detach();
   msg.editor = null;
 
-  console.log("Chat/user «%s»: runned command «%s»", msg.chat.name, args);
+  console.log('Chat/user "%s": runned command "%s"', msg.chat.name, args);
   msg.context.command = new Command(reply, msg.context, args);
   msg.context.command.on("exit", function() {
     msg.context.command = null;
